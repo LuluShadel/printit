@@ -51,11 +51,14 @@ arrowRight.addEventListener("click", () => {
 })
 
 
-
+// fonction pour afficher text et image 
 
 function caroussel (image,tagLine){
 
+
+	// recup de l'emplacement de l'image à changer 
 let carousselImage = document.querySelector(".banner-img")
+ //changement de l'attribut src en fonction de i 
 carousselImage.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
 
 
@@ -68,19 +71,23 @@ carousselText.innerHTML=slides[i].tagLine
 
 // placement des dots 
 
-	
+	//boucle pour chaque ligne du tableau creer une div
 		for([i] in slides){
-
+		// recuperation de la div parent
 		let dots = document.querySelector(".dots")
+		//creation de la div 
 		let dot=document.createElement("div")
+		//ajout de la class dot
 		dot.setAttribute("class","dot")
+		//liaison parent/enfant
 		dots.appendChild(dot)
-		console.log(dots) 
+		 
 	}
+
+	
 
 		
 
-		//for ( [i] in slides){
 	
 		
 	//}
