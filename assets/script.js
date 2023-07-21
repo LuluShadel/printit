@@ -66,6 +66,25 @@ carousselText.innerHTML=slides[i].tagLine
 
 
 
+// placement des dots 
+
+	
+		for([i] in slides){
+
+		let dots = document.querySelector(".dots")
+		let dot=document.createElement("div")
+		dot.setAttribute("class","dot")
+		dots.appendChild(dot)
+		console.log(dots) 
+	}
+
+		
+
+		//for ( [i] in slides){
+	
+		
+	//}
+
 
 
 	
