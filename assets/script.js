@@ -22,8 +22,14 @@ let i =0
 // ecoute du click sur la fleche de gauche 
 let arrowLeft = document.querySelector(".arrow_left");
 arrowLeft.addEventListener("click", () => {
+	//fleche de gauche retire 1
 	i--
+	// permet carrousel infinis avec un retour à 3(=max du tableau)
+	if(i<0){
+		i=slides.length
+	}
 	console.log(i)
+	//appel de la fonction qui va afficher texte et images 
 	caroussel()
 })
 
@@ -31,8 +37,14 @@ arrowLeft.addEventListener("click", () => {
 //ecoute du click sur la fleche de droite 
 let arrowRight = document.querySelector(".arrow_right");
 arrowRight.addEventListener("click", () => {
+	//fleche de droite ajoute 1
 	i++
+	//permet le caroussel infinis avec un retour à 0
+	if(i>slides.length){
+		i=0
+	}
 	console.log(i)
+	//appel de la fonction qui va afficher texte et images 
 	caroussel()
 	
 
@@ -51,6 +63,8 @@ let carousselText = document.querySelector("#banner p")
 carousselText.innerHTML=slides[i].tagLine
 
 }
+
+
 
 
 
