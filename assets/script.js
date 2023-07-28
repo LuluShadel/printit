@@ -26,11 +26,11 @@ arrowLeft.addEventListener("click", () => {
 	i--
 	// permet carrousel infinis avec un retour à 3(=max du tableau)
 	if(i<0){
-		i=slides.length
+		i=slides.length-1
 	}
 	console.log(i)
-	//appel de la fonction qui va afficher texte et images 
 	caroussel()
+	
 })
 
 
@@ -40,20 +40,37 @@ arrowRight.addEventListener("click", () => {
 	//fleche de droite ajoute 1
 	i++
 	//permet le caroussel infinis avec un retour à 0
-	if(i>slides.length){
+	if(i>=slides.length){
 		i=0
 	}
 	console.log(i)
 	//appel de la fonction qui va afficher texte et images 
+	
 	caroussel()
+	
 	
 
 })
 
+// placement des dots 
+
+	//boucle pour chaque ligne du tableau creer une div
+	for([i] in slides){
+		// recuperation de la div parent
+		let dots = document.querySelector(".dots")
+		//creation de la div 
+		let dotDiv=document.createElement("div")
+		//ajout de la class dot
+		dotDiv.setAttribute("class","dot")
+		//liaison parent/enfant
+		dots.appendChild(dotDiv)	 
+	}
+
+	
 
 // fonction pour afficher text et image 
 
-function caroussel (image,tagLine){
+function caroussel (){
 
 
 	// recup de l'emplacement de l'image à changer 
@@ -65,24 +82,25 @@ carousselImage.setAttribute("src","./assets/images/slideshow/"+slides[i].image)
 let carousselText = document.querySelector("#banner p")
 carousselText.innerHTML=slides[i].tagLine
 
+let dots = document.querySelectorAll(".dot")
+console.log(dots)
+
+dots.forEach(dot=>dot.classList.remove("dot_selected"))
+
+dots[i].classList.add("dot_selected")
+
 }
 
 
 
-// placement des dots 
 
-	//boucle pour chaque ligne du tableau creer une div
-		for([i] in slides){
-		// recuperation de la div parent
-		let dots = document.querySelector(".dots")
-		//creation de la div 
-		let dot=document.createElement("div")
-		//ajout de la class dot
-		dot.setAttribute("class","dot")
-		//liaison parent/enfant
-		dots.appendChild(dot)
-		 
-	}
+
+
+
+
+
+
+
 
 	
 
@@ -90,7 +108,7 @@ carousselText.innerHTML=slides[i].tagLine
 
 	
 		
-	//}
+
 
 
 
